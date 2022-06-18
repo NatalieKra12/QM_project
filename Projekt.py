@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     psi = (2/np.sqrt(a*b))*np.sin(nx*pi*xp/a)*np.sin(ny*pi*yp/b)
     fig, ax = plt.subplots()
-    #cs = ax.contourf(xp, yp, psi, levels = 50, colors='red')
+    cs = ax.contourf(xp, yp, psi, levels = 50, colors='red')
 	
 
     cbar = fig.colorbar(cs, label = 'psi')
