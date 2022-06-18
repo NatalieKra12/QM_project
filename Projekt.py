@@ -19,6 +19,7 @@ import matplotlib.cm as cm
 from matplotlib.widgets import Slider
 from matplotlib.widgets import CheckButtons
 from colorspacious import cspace_converter
+from qmsolve import Hamiltonian, SingleParticle, init_visualization
 
 # --------------CONSTANS--------------
 a = 1 #nm
@@ -39,9 +40,9 @@ if __name__ == "__main__":
     xp, yp = np.meshgrid(x, y)
 
     psi = (2/np.sqrt(a*b))*np.sin(nx*pi*xp/a)*np.sin(ny*pi*yp/b)
-    P = psi**2
     fig, ax = plt.subplots()
-    cs = ax.contourf(xp, yp, psi, levels = 50, cmap = cm.inferno)
+    #cs = ax.contourf(xp, yp, psi, levels = 50, colors='red')
+	
 
     cbar = fig.colorbar(cs, label = 'psi')
     ax.set_title('Particle in an Infinite 2D Square Well')
@@ -66,7 +67,9 @@ if __name__ == "__main__":
         Ey = ny*hc**2/(8*m*b**2)
         E = Ex + Ey
         psi = (2/np.sqrt(a*b))*np.sin(nx*pi*xp/a)*np.sin(ny*pi*yp/b)
-        cs = ax.contourf(xp, yp, psi, levels = 50, cmap = cm.inferno)
+        t = 1 #s
+        phase = np.exp(E*t/hbc)
+        cs = ax.contourf(xp, yp, phase, levels = 50, cmap = cm.hsv)
         # cbar = fig.colorbar(cs, label = 'psi')
 
 
@@ -74,7 +77,4 @@ if __name__ == "__main__":
     b_slider.on_changed(update_n)
 
     # check.on_clicked(on_check)
-
-
-
     plt.show()
