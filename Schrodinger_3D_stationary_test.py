@@ -21,7 +21,7 @@ pi = np.pi
 time  = 0
 nx = 3
 ny = 3
-L = 1
+L = 2
 x = np.linspace(0, L, 100)
 y = np.linspace(0, L, 100)
 X,Y= np.meshgrid(x, y)
@@ -54,7 +54,7 @@ if __name__ == "__main__":
 	line = ax.plot_surface(X,Y,Z,cmap = cm.twilight, linewidth = 0.5)
 	plt.xlabel('X')
 	plt.ylabel('Y')
-	# ax.set_zlim(-2, 2)
+	ax.set_zlim(-2, 2)
 	ax.set_zlabel('Z')
 
 	plt.title('Probability density n=1', color='magenta')
