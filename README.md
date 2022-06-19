@@ -1,3 +1,3 @@
 # QM_project
-# Authors:
-# Natalia Kramarz, Viktoriia Vlasenko
+ Authors:
+ Natalia Kramarz, Viktoriia Vlasenko
