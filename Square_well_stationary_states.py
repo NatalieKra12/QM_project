@@ -9,6 +9,7 @@ from matplotlib.widgets import CheckButtons
 from colorspacious import cspace_converter
 from tkinter import *
 import matplotlib.animation as animation
+from matplotlib.animation import PillowWriter
 #constants------------------------
 a = 1 #nm
 b = 1
@@ -47,5 +48,7 @@ if __name__ == "__main__":
     ax.set_xlabel('x [nm]')
     ax.set_ylabel('y [nm]')
 	
-    ani = animation.FuncAnimation(fig, animate, interval=100)
+    ani = animation.FuncAnimation(fig, animate, frames = 600, interval=100, blit = False)
+    #writer = PillowWriter(fps=60)
+    #ani.save("Square_well_stationary_states.gif", writer=writer)
     plt.show()
