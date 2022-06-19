@@ -12,15 +12,14 @@ import matplotlib.animation as animation
 #constants------------------------
 a = 1 #nm
 b = 1
-hc = 1240
-hbc = 197
-m = 511000
+hbc = 1
+m = 1
 pi = np.pi
 #calculations_unstationary_states----------------------------------
 time  = 0
-i = 0
-nx = 3
-ny = 3
+
+nx = 2
+ny = 2
 
 x = np.arange(0, a, 0.01)
 y = np.arange(0, b, 0.01)
@@ -35,6 +34,7 @@ Xarray = []
 Yarray = []
 
 psi = np.real((2/np.sqrt(a*b))*np.sin(nx*pi*xp/a)*np.sin(ny*pi*yp/b)*np.exp(-1j*E*time/(hbc**2)))
+#calculation------------------------------------------------------------------------------------------------------------
 def addStages(nxx, nyy):
     for x in range(nxx):
 	    for y in range(nyy):
@@ -44,19 +44,16 @@ def addStages(nxx, nyy):
 		    Earray.append(E)
 		    Xarray.append(x)
 		    Yarray.append(y)
-		    #xcoor = [0, 20]
-		   # ycoor = [E, E]
-		    #plt.plot(xcoor, ycoor, label = "Stan i")
-		    print(E)
+		    #print(E)
             			
 
 #simualtion--------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
     fig = plt.figure(figsize=(10,5))
     ax = fig.add_subplot(111)
-    ax.set_title('Energy Stages')
-    #ax.set_xlabel('x [nm]')
-    ax.set_ylabel('E = Enx+Eny')
+    ax.set_title('Energy Stages - stationary states in Square Well '+'$ n_{x} =$'+str(nx)+' $ n_{y} = $'+str(ny))
+    ax.set_ylabel('$ E = E_{n_{x}}+En_{n_{y}} $')
+    ax.axes.xaxis.set_ticklabels([])
     addStages(nx, ny)
     for i in range(len(Earray)):
 	    xcoor = [0, 20]
@@ -69,3 +66,4 @@ if __name__ == "__main__":
 		    plt.text(15,Earray[i], str(Xarray[i])+', '+str(Yarray[i]))
 	    plt.plot(xcoor, ycoor, label = "Stan i")
     plt.show()
+	plt.savefig("square_well_energy_states.jpg", dpi = 150)

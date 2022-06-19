@@ -13,15 +13,15 @@ from mpl_toolkits.mplot3d import Axes3D
 #constants------------------------
 #a = 1 #nm
 #b = 1
-hc = 1240
-hbc = 197
-m = 511000
+hbc = 1
+m = 1
 pi = np.pi
-#calculations_unstationary_states----------------------------------
+
 time  = 0
 nx = 3
 ny = 3
 L = 1
+
 x = np.linspace(0, L, 100)
 y = np.linspace(0, L, 100)
 X,Y= np.meshgrid(x, y)
@@ -31,7 +31,7 @@ Ey = ny**2*hbc**2*np.pi**2/(2*m*L**2)
 E = Ex + Ey
 	
 psi = np.real((2/np.sqrt(L*L))*np.sin(nx*pi*x/L)*np.sin(ny*pi*y/L)*np.exp(-1j*E*time/(hbc**2)))
-
+#simulation-----------------------------------------------------------------------------------------------------------
 def Psi_3d(a, b, t):
     psi_3d = np.real((2/np.sqrt(L*L))*np.sin(nx*pi*a/L)*np.sin(ny*pi*b/L)*np.exp(-1j*E*t/(hbc**2)))  
     return psi_3d	
@@ -43,9 +43,9 @@ def animate(i, Z, line):
     ax.set_zlim(-2, 2)
     ax.set_xlabel(r'$x$')
     ax.set_ylabel(r'$y$')
+    ax.set_title('Particle in an Infinite 2D Square Well -> stationary states')
     line = ax.plot_surface(X, Y, Z, cmap = cm.twilight, linewidth =0.5)
-    time = time+300
-    #print("tu")
+    time = time+0.005
     return line,
 	
 if __name__ == "__main__":
@@ -56,6 +56,5 @@ if __name__ == "__main__":
     ax.set_ylabel(r'$y$')
     Z = Psi_3d(X, Y, time)
     line = ax.plot_surface(X, Y, Z, cmap = cm.twilight, linewidth = 0.5)
-    plt.title('2D infinite sqare well stationary states', color='black')
-    ani = animation.FuncAnimation(fig, animate, fargs = (Z, line),  interval=50)
+    ani = animation.FuncAnimation(fig, animate, fargs = (Z, line),  interval=100)
     plt.show()

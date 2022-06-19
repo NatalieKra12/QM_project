@@ -12,12 +12,12 @@ import matplotlib.animation as animation
 #constants------------------------
 a = 1 #nm
 b = 1
-hc = 1240
-hbc = 197
-m = 511000
+hbc = 1
+m = 1
 pi = np.pi
-#calculations_unstationary_states----------------------------------
+
 time  = 0
+#quantum_numbers-------------------------------------------------------------------------------------------------------
 nx = 3
 ny = 3
 
@@ -34,20 +34,18 @@ psi = np.real((2/np.sqrt(a*b))*np.sin(nx*pi*xp/a)*np.sin(ny*pi*yp/b)*np.exp(-1j*
 #simualtion--------------------------------------------------------------------------------------------------------------
 def animate(i):
     global time
-    #print(time) ok 
     psi = np.real((2/np.sqrt(a*b))*np.sin(nx*pi*xp/a)*np.sin(ny*pi*yp/b)*np.exp(-1j*E*time/(hbc**2)))
     cs = ax.contourf(xp, yp, psi, levels = 20, cmap = cm.pink)
-    time = time+600
-    #plt.show()
-    print("show")
+    time = time+0.005
+
 if __name__ == "__main__":
-    fig = plt.figure(figsize=(5,5))
+    fig = plt.figure(figsize=(10,5))
     ax = fig.add_subplot(111)
     cs = ax.contourf(xp, yp, psi, levels = 20, cmap = cm.pink)
     cbar = fig.colorbar(cs, label = 'psi')
-    ax.set_title('Particle in an Infinite 2D Square Well')
+    ax.set_title('Particle in an Infinite 2D Square Well -> stationary states')
     ax.set_xlabel('x [nm]')
     ax.set_ylabel('y [nm]')
 	
-    ani = animation.FuncAnimation(fig, animate, interval=50)
+    ani = animation.FuncAnimation(fig, animate, interval=100)
     plt.show()
