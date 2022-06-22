@@ -10,6 +10,7 @@ from colorspacious import cspace_converter
 from tkinter import *
 import matplotlib.animation as animation
 from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.animation import PillowWriter
 #constants------------------------
 #a = 1 #nm
 #b = 1
@@ -56,5 +57,11 @@ if __name__ == "__main__":
     ax.set_ylabel(r'$y$')
     Z = Psi_3d(X, Y, time)
     line = ax.plot_surface(X, Y, Z, cmap = cm.twilight, linewidth = 0.5)
+<<<<<<< HEAD:Square_well_stationary_states_3D.py
     ani = animation.FuncAnimation(fig, animate, fargs = (Z, line),  interval=100)
+=======
+    ani = animation.FuncAnimation(fig, animate, fargs = (Z, line), frames = 600, interval=100)
+    #writer = PillowWriter(fps=60)
+    #ani.save("Square_well_stationary_states_3D.gif", writer=writer)	
+>>>>>>> 372c6cbcbd6c56532c47a29a648cbbf09a5c4cb5:Schrodinger_3D_stationary_test.py
     plt.show()

@@ -45,7 +45,11 @@ def addStages(nxx, nyy):
 		    Xarray.append(x)
 		    Yarray.append(y)
 		    #print(E)
+<<<<<<< HEAD
 
+=======
+            			
+>>>>>>> 372c6cbcbd6c56532c47a29a648cbbf09a5c4cb5
 
 #simualtion--------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -65,6 +69,11 @@ if __name__ == "__main__":
 	    if Xarray[i]<Yarray[i]:
 		    plt.text(15,Earray[i], str(Xarray[i])+', '+str(Yarray[i]))
 	    plt.plot(xcoor, ycoor, label = "Stan i")
+<<<<<<< HEAD
 
     plt.savefig("square_well_energy_states.jpg", dpi = 150)
     plt.show()
+=======
+    plt.show()
+	plt.savefig("square_well_energy_states.jpg", dpi = 150)
+>>>>>>> 372c6cbcbd6c56532c47a29a648cbbf09a5c4cb5
