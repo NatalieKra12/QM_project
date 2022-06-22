@@ -113,14 +113,8 @@ if __name__ == "__main__":
     ax.set_ylabel(r'$y$')
     xp, yp = np.meshgrid(xpos, ypos)
     anim = animation.FuncAnimation(fig, plot_probability, frames = 100, interval=20, blit = False)
-<<<<<<< HEAD
-    writer = PillowWriter(fps=60)
-    anim.save("sine_example.gif", writer=writer)
-    #pyplot.show()
-=======
     #writer = PillowWriter(fps=60)
     #anim.save("sine_example.gif", writer=writer)
     pyplot.show()
->>>>>>> 372c6cbcbd6c56532c47a29a648cbbf09a5c4cb5
 	
 	

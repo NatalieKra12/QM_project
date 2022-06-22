@@ -47,12 +47,8 @@ if __name__ == "__main__":
     ax.set_title('Particle in an Infinite 2D Square Well -> stationary states')
     ax.set_xlabel('x [nm]')
     ax.set_ylabel('y [nm]')
-	
-<<<<<<< HEAD:Square_well_stationary_states.py
-    ani = animation.FuncAnimation(fig, animate, interval=100)
-=======
+    #ani = animation.FuncAnimation(fig, animate, interval=100)
     ani = animation.FuncAnimation(fig, animate, frames = 600, interval=100, blit = False)
     #writer = PillowWriter(fps=60)
     #ani.save("Square_well_stationary_states.gif", writer=writer)
->>>>>>> 372c6cbcbd6c56532c47a29a648cbbf09a5c4cb5:Schrodinger_plot_test.py
     plt.show()
